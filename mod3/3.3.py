@@ -1,6 +1,6 @@
 sukupuoli = input("Anna biologinen sukupuoli (N tai M): ")
 
-hemoglobiini = float(input("Anna hemoglobiiniarvosi (g/l): "))
+hemoglobiini = float(input("Anna hemoglobiiniarvosi (g/l) ilman yksikköä: "))
 
 sukupuoli = sukupuoli.upper()
 
