@@ -9,4 +9,4 @@ while kerrat < N:
         ympyrassan += 1
     kerrat += 1
 
-print("π ≈", 4 * ympyrassan / N)
+print("π =", 4 * ympyrassan / N)
