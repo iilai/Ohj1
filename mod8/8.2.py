@@ -1,34 +1,26 @@
 import mysql.connector
-def lentokenttienmaara(maakoodi):
-    sql = f"SELECT kenttatyyppi FROM lentokentta WHERE maa='{maakoodi}'"
+
+def hae_lentokentat_maakoodilla(maakoodi):
+    sql = f"SELECT tyyppi, maara FROM lentokentta WHERE country='{maakoodi}' GROUP BY tyyppi"
     print(sql)
     kursori = yhteys.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
-
     if kursori.rowcount > 0:
-        maara = {}
+        print(f"Lentokenttien määrät maassa {maakoodi}:")
         for rivi in tulos:
             tyyppi = rivi[0]
-            if tyyppi in maara:
-                maara[tyyppi] += 1
-            else:
-                maara[tyyppi] = 1
-
-        print(f"\nMaassa {maakoodi} olevien lentokenttien lukumäärät tyypeittäin:")
-        for tyyppi, lkm in maara.items():
-            print(f"{tyyppi}: {lkm} kpl")
-    else:
-        print("Kyseisellä maakoodilla ei löytynyt lentokenttiä.")
+            maara = rivi[1]
+            print(f"{tyyppi}: {maara} kpl")
+    return
 
 yhteys = mysql.connector.connect(
-    host="localhost",
+    host='127.0.0.1',
     port=3306,
-    database="",
-    user="root",
-    password="",
+    database='lentokentat',
+    user='localhost',
+    password='',
     autocommit=True
 )
-
 maakoodi = input("Anna maakoodi (esim. FI): ")
-haelentokenttien_maarat(maakoodi)
+hae_lentokentat_maakoodilla(maakoodi)
