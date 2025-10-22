@@ -1,7 +1,6 @@
 import random
 
 class Auto:
-
     def __init__(self, rekisteritunnus, huippunopeus):
         self.rekisteritunnus = rekisteritunnus
         self.huippunopeus = huippunopeus
@@ -23,7 +22,7 @@ def main():
     autot = []
     for i in range(10):
         huippunopeus = random.randint(100, 200)
-        autot.append(Auto(f"ABC-{i+1}", huippunopeus))  # luodaan Auto-olio
+        autot.append(Auto(f"ABC-{i+1}", huippunopeus))
 
     kilpailu = True
     while kilpailu:
@@ -31,6 +30,7 @@ def main():
             muutos = random.randint(-10, 15)
             auto.kiihdyta(muutos)
             auto.kulje(1)
+        for auto in autot:
             if auto.kuljettu_matka >= 10000:
                 kilpailu = False
                 break
