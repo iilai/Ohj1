@@ -3,7 +3,7 @@ import json
 
 hakusana = input("Anna paikkakunnan nimi, niin annan säätilan ja lämpötilan celsius asteina: ")
 
-apiavain = "fbedcbee6adc99715e0302d1a3c10a15"
+apiavain = "apiavain"
 
 pyynto = f"https://api.openweathermap.org/data/2.5/weather?q={hakusana}&appid={apiavain}&units=metric&lang=fi"
 
